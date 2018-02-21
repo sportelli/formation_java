@@ -6,10 +6,11 @@ import com.tswe.formation3.entities.Client;
 import com.tswe.formation3.entities.Panier;
 import com.tswe.formation3.entities.Produit;
 
-public class PanierDAO implements IPanierDAO {
+public class PanierDAO 
+	extends ObjectDAO
+	implements IPanierDAO {
 
-	
-	
+
 	/* (non-Javadoc)
 	 * @see com.tswe.formation3.dao.IPanierDAO#ajoute(com.tswe.formation3.entities.Produit, com.tswe.formation3.entities.Panier)
 	 */
@@ -45,7 +46,7 @@ public class PanierDAO implements IPanierDAO {
 	 */
 	@Override
 	public Panier create(Panier x) {
-		// TODO Auto-generated method stub
+		demarrerTransaction();
 		return null;
 	}
 

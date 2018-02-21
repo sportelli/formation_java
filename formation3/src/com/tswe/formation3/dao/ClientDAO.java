@@ -2,7 +2,9 @@ package com.tswe.formation3.dao;
 
 import com.tswe.formation3.entities.Client;
 
-public class ClientDAO implements IDAO<Client> {
+public class ClientDAO 
+	extends ObjectDAO
+	implements IDAO<Client> {
 
 //	public Client creer(Client c )
 	
@@ -17,7 +19,7 @@ public class ClientDAO implements IDAO<Client> {
 
 	@Override
 	public Client create(Client client) {
-		//TODO: Insérer en base de données client
+		demarrerTransaction();
 		client.setId(123);
 		return client;
 	}
