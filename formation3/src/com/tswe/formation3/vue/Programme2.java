@@ -20,7 +20,7 @@ public class Programme2 {
 		try {			
 			// Créer un "faux" panier
 			Panier panier = new Panier();
-			panier.setId(2);
+			panier.setId(-2);
 
 			// Ajout des "faux" produits
 			ArrayList<Produit> produits = new ArrayList<Produit>();
@@ -38,7 +38,12 @@ public class Programme2 {
 			System.out.println(f);
 		} catch (PanierNonTrouveException pe) {
 			System.out.println("Panier non trouvé");
+		} finally {
+			// Dans tous les cas
+			System.out.println("fin de programme2");			
 		}
+		
+		
 	}
 
 }
