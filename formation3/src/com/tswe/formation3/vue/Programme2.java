@@ -2,7 +2,6 @@ package com.tswe.formation3.vue;
 
 import java.util.ArrayList;
 
-import com.tswe.formation3.dao.ObjectDAO;
 import com.tswe.formation3.entities.Client;
 import com.tswe.formation3.entities.Facture;
 import com.tswe.formation3.entities.Panier;
