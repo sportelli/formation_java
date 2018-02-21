@@ -8,6 +8,8 @@ import com.tswe.formation3.entities.Produit;
 
 public class PanierDAO implements IPanierDAO {
 
+	
+	
 	/* (non-Javadoc)
 	 * @see com.tswe.formation3.dao.IPanierDAO#ajoute(com.tswe.formation3.entities.Produit, com.tswe.formation3.entities.Panier)
 	 */
@@ -70,6 +72,16 @@ public class PanierDAO implements IPanierDAO {
 	@Override
 	public void connect() {
 		System.out.println("LE PANIER SE CONNECTE");
+	}
+
+	@Override
+	public Panier findById(Integer id) {
+		Panier p = null;
+		if ((id != null) && (id > 0)) {
+			p = new Panier();
+			p.setId(id);
+		}
+		return p;
 	}
 
 }

@@ -20,4 +20,5 @@ public interface IPanierDAO extends IDAO<Panier> {
 
 	void connect();
 
+	Panier findById(Integer id);
 }

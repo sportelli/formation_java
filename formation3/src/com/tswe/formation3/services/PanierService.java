@@ -31,11 +31,8 @@ public class PanierService {
 	public Panier findById(Integer id) throws PanierNonTrouveException {
 		// si id < 0 => on jette l'exception
 		// sinon on renvoie un Panier
-		Panier p = null;
-		if ( (id != null) && (id > 0 )){
-			p = new Panier();
-			p.setId(id);
-		} else {
+		Panier p = pDAO.findById(id);
+		if (p == null) { 
 			throw new PanierNonTrouveException();
 		}
 		return p;
