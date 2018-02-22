@@ -9,7 +9,7 @@ public class TestClientDAO {
 
 	@Test (expected=ClientNotFoundException.class )
 	public void testGetByIdNull() throws ClientNotFoundException{
-		new ClientDAO().getById(0);
+		new ClientDAO().getById(3);
 	}
 	
 	@Test (expected=ClientNotFoundException.class )
