@@ -16,6 +16,13 @@ public class TestUserDAO
 		// Doit me renvoyer null !
 		Assert.assertNotNull(u);
 	}
+	
+	@Test
+	public void testFindByEmailVideBis(){
+		User u = userDAO.findByEmail("");
+		// Doit me renvoyer null !
+		Assert.assertNotNull(u);
+	}
 
 	@Test
 	public void testFindByEmailIncorrect(){
