@@ -2,7 +2,7 @@ package com.tswe.formation3.vue;
 
 import com.tswe.formation3.exceptions.ANegatifException;
 
-public class TestCalcul {
+public class Calcul {
 	
 	public Integer sommePositive(Integer a, Integer b) 
 			throws Exception {

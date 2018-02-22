@@ -1,5 +1,6 @@
 package com.tswe.formation3.services;
 
+import com.tswe.formation3.dao.IUserDAO;
 import com.tswe.formation3.dao.UserDAO;
 import com.tswe.formation3.entities.User;
 import com.tswe.formation3.exceptions.InvalidPasswordException;
@@ -7,7 +8,7 @@ import com.tswe.formation3.exceptions.UserNotFoundException;
 
 public class UserService {
 	
-	private UserDAO uDAO = null;
+	private IUserDAO uDAO = null;
 	
 	public UserService(){
 		this.uDAO = new UserDAO();
@@ -25,6 +26,14 @@ public class UserService {
 			}
 		}
 		return u;
+	}
+
+	public IUserDAO getuDAO() {
+		return uDAO;
+	}
+
+	public void setuDAO(IUserDAO uDAO) {
+		this.uDAO = uDAO;
 	}
 
 }

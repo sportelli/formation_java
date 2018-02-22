@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="MyFirstTest" basedir="." default="execute_all">
+ 
+	<!-- Add an ANT property for the directory containing the HTML reports: -->
+	<property name="dir.test.reports" value="${basedir}/report/" />
+	<property name="dir.test.class" value="${basedir}/tests/" />
+	<property name="dir.lib" value="${basedir}/libs/"/>
+	<property name="src.dir" value="${basedir}/src/" />
+	<property name="classes.dir" value="${basedir}/bin/" />
+	<property name="classpath" value="${basedir}" />
+	<!-- Add the test jar (junit and testng) -->
+	<path id="classpath">
+		<pathelement location="${classes.dir}" />
+		<fileset dir="${dir.lib}">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+ 
+	<target name="create_directory">
+		<echo message="Create the directory report ${dir.test.reports}" />
+		<mkdir dir="${dir.test.reports}" />
+	</target>
+	
+	<target name="compile" >
+		<javac srcdir="${src.dir}" destdir="${classes.dir}" classpathref="classpath" deprecation="off" />
+		<javac srcdir="${dir.test.class}" destdir="${classes.dir}" classpathref="classpath" deprecation="off" />
+  	</target>
+ 
+	<!-- Define the Ant task for running JUnit and generating reports -->
+	<target name="execute_batch_test" depends="compile">
+ 
+		<echo message="Execute Tests in Batch" />
+		<junit fork="yes" printsummary="yes" haltonfailure="no">
+			<classpath refid="classpath" />
+
+			<batchtest fork="yes" todir="${dir.test.reports}">
+				<fileset dir="${classes.dir}">
+					<include name="**/Test*.class" />
+				</fileset>
+			</batchtest>
+			<formatter type="xml" />
+		</junit>
+ 
+		<echo message="Format the tests report" />
+		<junitreport todir="${dir.test.reports}">
+			<fileset dir="${dir.test.reports}">
+				<include name="TEST-*.xml" />
+			</fileset>
+			<report todir="${dir.test.reports}" />
+		</junitreport>
+	</target>
+ 
+	<target name="execute_one_test" depends="create_directory">
+		<echo message="Execute One Test" />
+		<junit printsummary="yes" fork="yes" haltonfailure="no">
+			<classpath refid="classpath" />
+			<formatter type="xml" />
+			<test name="junit.HelloWorld" todir="${dir.test.reports}" />
+		</junit>
+	</target>
+	
+	<target name="execute_all" depends="execute_batch_test" />
+
+</project>

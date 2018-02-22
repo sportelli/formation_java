@@ -6,7 +6,7 @@ public class ExempleException {
 	
 	public static void main (String[] args){
 		
-		TestCalcul tc = new TestCalcul();
+		Calcul tc = new Calcul();
 		
 		try {
 		Integer somme1= tc.sommePositive(2 , 3);
