@@ -7,7 +7,7 @@ import com.tswe.formation3.exceptions.ClientNotFoundException;
 
 public class TestClientDAO {
 
-	@Test (expected=ClientNotFoundException.class )
+/*	@Test (expected=ClientNotFoundException.class )
 	public void testGetByIdNull() throws ClientNotFoundException{
 		new ClientDAO().getById(0);
 	}
@@ -20,6 +20,6 @@ public class TestClientDAO {
 	@Test
 	public void testGetByIdValide() throws ClientNotFoundException {
 		Assert.assertNotNull(new ClientDAO().getById(1));
-	}
+	}*/
 	
 }
