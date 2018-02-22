@@ -19,9 +19,10 @@
 	<target name="create_directory">
 		<echo message="Create the directory report ${dir.test.reports}" />
 		<mkdir dir="${dir.test.reports}" />
+		<mkdir dir="bin/" />
 	</target>
 	
-	<target name="compile" >
+	<target name="compile" depends="create_directory" >
 		<javac srcdir="${src.dir}" destdir="${classes.dir}" classpathref="classpath" deprecation="off" />
 		<javac srcdir="${dir.test.class}" destdir="${classes.dir}" classpathref="classpath" deprecation="off" />
   	</target>
