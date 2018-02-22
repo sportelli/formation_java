@@ -8,6 +8,8 @@ public class Panier {
 	private ArrayList<Produit> produits;
 	private Client proprietaire;
 	
+	private static Integer compteur= 0;
+	
 	public ArrayList<Produit> getProduits() {
 		return produits;
 	}
@@ -48,6 +50,17 @@ public class Panier {
 	}
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	public static Integer getCompteur() {
+		return compteur;
+	}
+	public static void setCompteur(Integer compteur) {
+		Panier.compteur = compteur;
+	}
+	
+	public Panier(){
+		System.out.println("CREATION D'UN PANIER");
+		Panier.compteur++;
 	}
 	
 }

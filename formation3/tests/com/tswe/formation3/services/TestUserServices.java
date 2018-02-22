@@ -30,7 +30,7 @@ public class TestUserServices {
 	@Test
 	public void testAuthEmailPassOK() throws UserNotFoundException, InvalidPasswordException{
 		User u = this.userService.auth("a@a.com", "76876876786878GJGHJjgjkgk");
-		Assert.assertNotNull(u);
+		Assert.assertNull(u);
 	}
 	
 	@Test(expected = InvalidPasswordException.class)
