@@ -13,6 +13,7 @@ import com.tswe.formation3.entities.User;
 import com.tswe.formation3.exceptions.FactureIdNegativeException;
 import com.tswe.formation3.exceptions.InvalidPasswordException;
 import com.tswe.formation3.exceptions.UserNotFoundException;
+import com.tswe.formation3.exceptions.ClientNotFoundException;
 import com.tswe.formation3.services.ClientService;
 import com.tswe.formation3.services.FactureService;
 import com.tswe.formation3.services.PanierService;
@@ -20,7 +21,7 @@ import com.tswe.formation3.services.UserService;
 
 public class Programme {
 
-	public static void main(String[] args){
+	public static void main(String[] args) throws Exception{
 		
 		// Packages à créer: entities, dao, services
 		// Créer une classe Tiers (nom, id)

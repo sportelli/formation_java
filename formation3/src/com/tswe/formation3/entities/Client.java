@@ -6,6 +6,14 @@ public class Client extends Tiers{
 	private String name;
 	private String codeClient;
 	
+	public Client(Integer tmpId, String tmpName, String tmpCodeClient) {
+		this.id = tmpId;
+		this.name = tmpName;
+		this.codeClient = tmpCodeClient;
+	}
+	public Client(){
+		
+	}
 	public Integer getId() {
 		return id;
 	}

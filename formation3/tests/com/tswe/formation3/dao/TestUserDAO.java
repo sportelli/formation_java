@@ -30,7 +30,7 @@ public class TestUserDAO
 		// Doit me renvoyer null !
 		Assert.assertEquals("76876876786878GJGHJjgjkgk", u.getPassword());
 	}
-	
+		
 	@Before
 	public void initialisation(){
 		this.userDAO = new UserDAO();
