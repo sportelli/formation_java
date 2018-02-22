@@ -18,10 +18,6 @@
  
 	<target name="create_directory">
 		<echo message="Create the directory report ${dir.test.reports}" />
-		<delete dir="${dir.test.reports}"/>
-		<delete includeEmptyDirs="true">
-		    <fileset dir="bin"/>
-		  </delete>
 		<mkdir dir="${dir.test.reports}" />
 		<mkdir dir="bin/" />
 	</target>
