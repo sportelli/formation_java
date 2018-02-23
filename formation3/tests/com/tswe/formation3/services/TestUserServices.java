@@ -28,14 +28,27 @@ public class TestUserServices {
 	}
 
 	@Test
+	public void testAuthEmailEtPasswordVideNoException() {
+		Boolean exceptionRaised = false;
+		try {
+			User u = this.userService.auth("", "");
+		} catch (UserNotFoundException | InvalidPasswordException e) {
+			exceptionRaised = true;
+		}
+		
+		Assert.assertTrue(exceptionRaised);
+	}
+
+	@Test
 	public void testAuthEmailPassOK() throws UserNotFoundException, InvalidPasswordException{
 		User u = this.userService.auth("a@a.com", "76876876786878GJGHJjgjkgk");
-		Assert.assertNull(u);
+		Assert.assertNotNull(u);
 	}
 	
 	@Test(expected = InvalidPasswordException.class)
 	public void testAuthMdpFaux() throws UserNotFoundException, InvalidPasswordException{
 		User u = this.userService.auth("a@a.com", "xx");
 	}
+	
 	
 }
