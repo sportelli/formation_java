@@ -82,13 +82,15 @@ public class ClientDAO
 			
 			String sql = "DELETE FROM users where id= ?";
 			PreparedStatement st = 
-						connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+						connection.prepareStatement(sql);
 
 			// Je définis les paramètres de ma requête SQL
 			st.setInt(1, client.getId());
 			
 			// J'exécute la requête SQL
 			st.execute();
+			connection.close();
+
 						
 		} catch (ClassNotFoundException e) {
 			System.out.println("DRIVER PGSQL NON TROUVE");
@@ -100,11 +102,32 @@ public class ClientDAO
 	}
 
 	@Override
-	public Client update(Client x) {
-		//TODO: Modification en base de données
-		return x;
-	}
+	public Client update(Client client) {
+		try {
+			Connection connection = getConnection();
+			
+			String sql = "UPDATE users SET name=?, codeclient=? where id= ?";
+			PreparedStatement st = 
+						connection.prepareStatement(sql);
 
+			// Je définis les paramètres de ma requête SQL
+			st.setString(1, client.getName());
+			st.setString(2, client.getCodeClient());
+			st.setInt(3, client.getId());
+			
+			// J'exécute la requête SQL
+			st.execute();
+		
+			connection.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("COMMUNICATION AVEC LA BASE IMPOSSIBLE UPDATE");
+		} 
+		
+		return client;
+		
+	}
 
 	@Override
 	public void connect() {

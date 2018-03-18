@@ -2,6 +2,9 @@ package com.tswe.formation3.dao;
 
 import java.util.List;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Marshaller;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -56,6 +59,22 @@ public class TestClientDAO {
 		System.out.println("id " + c.getId() + " créé");
 		this.clientDAO.delete(c);
 		this.clientDAO.getById(c.getId());
+	}
+	
+	@Test
+	public void testUpdateClient() throws ClientNotFoundException{
+		// Je créé un client
+		Client c = new Client();
+		c.setName("felix");
+		c.setCodeClient("123");
+		c= this.clientDAO.create(c); // je le persiste
+		c.setName("pascale");
+		c.setCodeClient("612");
+		c = this.clientDAO.update(c); // je le mets à jour
+		c = this.clientDAO.getById(c.getId()); // je le récupère
+		Assert.assertNotNull(c); // je verifie qu'il a les bonnes infos
+		Assert.assertEquals(c.getName(), "pascale");
+		Assert.assertEquals(c.getCodeClient(), "612");
 	}
 	
 	@Before
